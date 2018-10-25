@@ -3,14 +3,21 @@ package edu.uw.viewpager
 import android.os.Bundle
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.View
 import android.widget.EditText
 
-class MainActivity : AppCompatActivity(), MovieListFragment.OnMovieSelectedListener {
+class MainActivity : AppCompatActivity(), MovieListFragment.OnMovieSelectedListener, SearchFragment.OnSearchListener {
+
+    private var searchFragment: SearchFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        searchFragment = SearchFragment.newInstance()
+
     }
 
     //respond to search button clicking
